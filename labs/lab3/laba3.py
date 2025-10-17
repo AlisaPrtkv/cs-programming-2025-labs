@@ -47,7 +47,7 @@ print(r)
 #8
 while True:
     g = input()
-    if g.lower() == 'q':
+    if g.lower() == 's':
         break
     n = g.split()
     if len(n) == 2:
@@ -55,7 +55,7 @@ while True:
             n1 = float(n[0])
             n2 = float(n[1])
             res = n1 + n2
-            print(f"Sum: {res}")
+            print(res)
         except ValueError:
             print("Err")
     else:
