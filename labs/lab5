@@ -1,0 +1,121 @@
+#1
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+if 3 in a:
+    b = a.index(3)
+    a[b] = 30
+    print(a)
+else: print('Нет такого')
+
+#2
+a = [2, 3, 4, 5, 6]
+b = [i ** 2 for i in a]
+print(b)
+
+#3
+a = [4, 57, 92, 5, 18]
+b = max(a) / len(a)
+print(b)
+
+#4
+def sort_if_num(s):
+    for i in s:
+        if not isinstance(i, (int, float)):
+            return s
+    return tuple(sorted(s))
+a = (2, 'Карусели', 7.4, 34, 'Газели')
+res = sort_if_num(a)
+print(res)
+
+#5
+tov = ["Помидоры, 256", "Виноград, 835", "Груша, 333"]
+
+prods = []
+for i in tov:
+    name, prise = i.split(',')
+    prods.append((name, int(prise)))
+min_prod = min(prods, key=lambda x: x[1])
+max_prod = max(prods, key=lambda x: x[1])
+print(f"Товар с минимальной ценой: {min_prod[1]}")
+print(f"Товар с максимальной ценой: {max_prod[1]}")
+
+#6
+tovars = [("Сосиски", 300), ("Курица", 567), ("Сруколла", 150), ("Томат", 173), ("Равиолли", 1000)]
+slovar = dict(tovars)
+print(slovar)
+
+#7
+ws = {
+    "яблоко": "apple",
+    "книга": "book",
+    "дом": "house",
+    "кот": "cat",
+    "собака": "dog",
+    "компьютер": "computer"
+}
+w = input("Введите русское слово > ").strip().lower()
+if w in ws:
+    print(f"Перевод: {ws[w]}")
+else:
+    print("Слово не найдено")
+
+#8
+import random
+you = input("Введите Камень-Ножницы-Бумага-Ящерица-Спок: ")
+game = ['Камень', 'Ножницы', 'Бумага', 'Ящерица', 'Спок']
+prog = random.choice(game)
+print(f"prog = {prog}")
+if you == 'Камень' and (prog == 'Ящерица' or prog == 'Ножницы'):
+    print('you')
+elif you == 'Камень' and (prog == 'Бумага' or prog == 'Спок') :
+    print('prog')
+
+elif you == 'Ножницы' and (prog == 'Бумага' or prog == 'Ящерица'):
+    print('you')
+elif you == 'Ножницы' and (prog == 'Камень' or prog == 'Спок'):
+    print('prog')
+
+elif you == 'Бумага' and (prog == 'Камень' or prog == 'Спок'):
+    print('you')
+elif you == 'Бумага' and (prog == 'Ножницы' or prog == 'Ящерица'):
+    print('prog')
+
+elif you == 'Ящерица' and (prog == 'Спок' or prog == 'Бумага'):
+    print('you')
+elif you == 'Ящерица' and (prog == 'Ножницы' or prog == 'Камень'):
+    print('prog')
+
+elif you == 'Спок' and (prog == 'Ножницы' or prog == 'Камень'):
+    print('you')
+elif you == 'Спок' and (prog == 'Ящерица' or prog == 'Бумага'):
+    print('prog')
+
+elif you == prog: print('Ничья')
+
+#9
+ws = ["карусель", "картошка", "свекла", "желудок", "секунда", "белка"]
+d = {}
+for w in ws:
+    f = w[0]
+    if f not in d:
+        d[f] = []
+    d[f].append(w)
+print(d)
+
+#10
+sts = [("Лера", [5, 4, 5]), ("Мурик", [3, 4, 2]), ("Севинч", [5, 5, 5])]
+
+d = {}
+for name, marks in sts:
+    average = sum(marks) / len(marks)
+    d[name] = average
+
+best_s = max(d, key=d.get)
+best_ave = d[best_s]
+
+print(f"У {best_s} самый высокий средний балл: {best_ave:.1f}")
+
+
+
+
+
+
