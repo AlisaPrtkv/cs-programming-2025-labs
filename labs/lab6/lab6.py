@@ -111,11 +111,9 @@ quick_primes()
 def matrix_addition_simple():
     try:
         n = int(input())
-
         if n <= 2:
             print("Error!")
             return
-
         m1 = []
         for _ in range(n):
             row = list(map(float, input().split()))
@@ -123,7 +121,6 @@ def matrix_addition_simple():
                 print("Error!")
                 return
             m1.append(row)
-
         m2 = []
         for _ in range(n):
             row = list(map(float, input().split()))
@@ -131,16 +128,13 @@ def matrix_addition_simple():
                 print("Error!")
                 return
             m2.append(row)
-
         for i in range(n):
             row_result = []
             for j in range(n):
                 row_result.append(str(m1[i][j] + m2[i][j]))
             print(" ".join(row_result))
-
     except:
         print("Error!")
-
 if __name__ == "__main__":
     print("=== Сложение матриц ===")
     print("Введите:")
