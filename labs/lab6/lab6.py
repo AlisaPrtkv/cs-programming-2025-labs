@@ -59,40 +59,23 @@ if __name__ == "__main__":
 #2
 def calculate_profit(a, n):
     if a < 30000:
-        return "Минимальный вклад - 30 000 рублей"
-
-    bonus = min(5, (a // 10000) * 0.3)
-
-    rate = 3 if n <= 3 else 5 if 4 <= n <= 6 else 2
-
-    total_rate = rate + bonus
-    total = a * ((1 + total_rate / 100) ** n)
-
+        return 0
+    bonus = min((a // 10000) * 0.3, 5)
+    if n <= 3:
+        rate = 3
+    elif n <= 6:
+        rate = 5
+    else:
+        rate = 2
+    rate += bonus
+    total = a
+    for _ in range(n):
+        total *= (1 + rate / 100)
     return round(total - a, 2)
 
-print("=== Калькулятор прибыли по вкладу ===")
-print("Минимальный вклад: 30 000 рублей")
-
-try:
-    amount = float(input("Введите сумму вклада (руб): "))
-    years = int(input("Введите срок вклада (лет): "))
-
-    result = calculate_profit(amount, years)
-
-    print(f"\nРезультат расчета:")
-    print(f"Сумма вклада: {amount:,.0f} руб".replace(',', ' '))
-    print(f"Срок вклада: {years} лет")
-
-    if isinstance(result, str):
-        print(f"Ошибка: {result}")
-    else:
-        print(f"Прибыль: {result:,.2f} руб".replace(',', ' '))
-        print(f"Итоговая сумма: {(amount + result):,.2f} руб".replace(',', ' '))
-
-except ValueError:
-    print("Ошибка: введите корректные числовые значения")
-except Exception as e:
-    print(f"Произошла ошибка: {e}")
+a = int(input("Сумма вклада (руб.): "))
+n = int(input("Срок (лет): "))
+print(f"Прибыль: {calculate_profit(a, n)} руб.")
 
 #3
 def quick_primes():
