@@ -3,9 +3,7 @@ def convert_time_string(input_str):
     parts = input_str.split()
     if len(parts) != 3:
         raise ValueError("Некорректный формат ввода.")
-
     value_str, from_unit, to_unit = parts
-
     try:
         value = float(value_str)
     except ValueError:
